@@ -5,12 +5,15 @@
   "main": "./lib/index.js",
   "bin": "./lib/cli.js",
   "scripts": {
-    "clean": "rm -rf lib",
+    "clean": "rmdir /s /q lib 2>nul",
     "compile": "tsc",
     "watch": "tsc -w",
     "prepare": "npm run clean && npm run compile",
     "test": "./node_modules/.bin/jest",
     "test:smoke": "npm install && npm run compile && rm -rf node_modules && npm install --prod && node ./lib/cli.js && echo 'Smoke Test Passed'"
+  },
+  "resolutions": {
+    "graphql": "^0.13.1"
   },
   "repository": {
     "type": "git",
